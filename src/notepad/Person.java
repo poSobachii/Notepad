@@ -1,22 +1,11 @@
 package notepad;
 
-public class Person {
-    private static int count = 0;
-    private int id;
+public class Person extends Record {
+
     private String name;
     private String surname;
     private String phone;
     private String email;
-
-
-    public Person() {
-
-        count++;
-        id = count;
-
-    }
-
-    public int getId() { return id; }
 
     public String getName() { return name; }
 
@@ -36,11 +25,19 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{ #" + id +
+        return "Person{ #" + getId() +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                '}' + count;
+                '}';
+    }
+
+    @Override
+    public boolean hasSubstring(String str) {
+        return name.contains(str)
+                || surname.contains(str)
+                || phone.contains(str)
+                || email.contains(str);
     }
 }
