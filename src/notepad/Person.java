@@ -1,5 +1,7 @@
 package notepad;
 
+import java.util.Scanner;
+
 public class Person extends Record {
 
     private String name;
@@ -39,5 +41,31 @@ public class Person extends Record {
                 || surname.contains(str)
                 || phone.contains(str)
                 || email.contains(str);
+    }
+
+    @Override
+    public void askQuest() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Enter Name: ");
+        name = in.nextLine();
+
+        System.out.println("Enter Surname: ");
+        surname = in.nextLine();
+
+        do {
+            System.out.println("Enter phone number: ");
+            String phon = in.nextLine();
+            if (phon.length() <= 5) {
+                System.out.println("number to small");
+            } else {
+                phone = phon;
+                break;
+            }
+        } while (true);
+
+        System.out.println("Enter email: ");
+        email = in.nextLine();
+
     }
 }
