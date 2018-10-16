@@ -24,7 +24,7 @@ public class Note extends Record {
     @Override
     public void askQuest() {
         Scanner scr = new Scanner(System.in);
-        System.out.println("Enter text:");
+        System.out.println("Enter Text:");
         text = scr.nextLine();
     }
 }
